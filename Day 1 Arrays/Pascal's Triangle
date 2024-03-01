@@ -1,0 +1,22 @@
+118. Pascal's Triangle
+
+Given an integer numRows, return the first numRows of Pascal's triangle.
+
+Solution:
+
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        l=[]
+        for i in range(numRows):
+            l.append([])
+        l[0].append(1)
+        for i in range(1,numRows):
+            l[i].append(1)
+            for j in range(len(l[i-1])-1):
+                l[i].append(l[i-1][j]+l[i-1][j+1])
+            l[i].append(1)
+        return l
