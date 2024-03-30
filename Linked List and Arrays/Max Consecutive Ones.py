@@ -26,4 +26,20 @@ class Solution:
 
         return maxi
 
-        
+Alternative:
+ Using Sliding Window
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        i=j=0
+        n=len(nums)
+        maxi=0
+        while j<n:
+            if nums[j]==1:
+                j+=1
+            else:
+                maxi=max(j-i,maxi)
+                j+=1
+                i=j
+        return max(j-i,maxi)
+
+
